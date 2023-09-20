@@ -8,7 +8,7 @@ export default function Home() {
   console.log(session)
   return (
     <div className='container px-10 mx-auto text-center'>
-      <h1 className='text-rose-400 text-2xl'>human</h1>
+      <h1 className='text-rose-400 text-2xl'>welcome{session?.user?.name}</h1>
       {session && (
           <Link href="#" onClick={() => signOut()} className="btn-signin">
             Sign out
