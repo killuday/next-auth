@@ -21,12 +21,13 @@ export const options:NextAuthOptions={
          authorize(credentials, req){
             const {email,password}=credentials as {
                 email:string,
-                password:string
+                password:string,
+                id:number
             };
             if(email !== 'udaybhanu@hey.com' || password!=='killuday'){
                 throw new Error('Invalid credentials');
             }
-                return {id:1234,name:'uday',email:'udaybhanu@hey.com'};
+                return {id:'1234',name:'uday',email:'udaybhanu@hey.com'};
             
         }
         })
