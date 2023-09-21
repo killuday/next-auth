@@ -6,10 +6,10 @@ export const options:NextAuthOptions={
         CredentialsProvider({
             name:'Credentials',
             credentials:{
-                username:{
-                    label:'Username',
-                    type:'text',
-                    placeholder:'Enter your username'
+                email:{
+                    label:'Email',
+                    type:'email',
+                    placeholder:'Enter your email'
             },
             password:{
                 type:'password',
@@ -18,15 +18,23 @@ export const options:NextAuthOptions={
 
             }
         },
-        async authorize(credentials, req){
-            const user= {id:'1',name:'Uday Bhanu',password:"killuday"}
-            if(credentials?.username===user.name && credentials?.password === user.password){
-                return user;
-            }else{
-                return null;
+         authorize(credentials, req){
+            const {email,password}=credentials as {
+                email:string,
+                password:string
+            };
+            if(email !== 'udaybhanu@hey.com' || password!=='killuday'){
+                throw new Error('Invalid credentials');
             }
+                return {id:1234,name:'uday',email:'udaybhanu@hey.com'};
+            
         }
         })
            
     ],
+    pages:{
+        signIn:'/login',
+        error:'/error'
+     }
+
 }
