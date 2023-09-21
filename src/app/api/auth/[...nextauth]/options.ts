@@ -22,7 +22,6 @@ export const options:NextAuthOptions={
             const {email,password}=credentials as {
                 email:string,
                 password:string,
-                id:number
             };
             if(email !== 'udaybhanu@hey.com' || password!=='killuday'){
                 throw new Error('Invalid credentials');
