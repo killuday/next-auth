@@ -36,20 +36,23 @@ export default function Home() {
   }
   if (status === "unauthenticated") {
     return (
-      <div className="container px-10 mx-auto text-center">
-        <h1 className="text-slate-900 text-2xl font-extrabold">Please Login</h1>
+      <div className="text-center container px-10 h-[100vh] w-[100vw] bg-slate-200 flex items-center justify-center">
+        <div>
+        <h1 className="text-slate-900 text-2xl mb-5 font-extrabold">Please Login</h1>
         <Link href="#" onClick={() => signIn()} className="btn-signin">
           <Button style={styles.primarybtn} variant="contained">
             Click to visit login page
           </Button>
         </Link>
+        </div>
       </div>
     );
   }
   return (
-    <div className="container px-10 mx-auto text-center">
-      <h1 className="text-slate-900 text-2xl">
-        welcome <span className="text-fuchsia-500">{session?.user?.email}</span>
+    <div className="container px-10 h-[100vh] w-[100vw] bg-white flex items-center justify-center text-center">
+     <div>
+     <h1 className="text-slate-900 text-2xl mb-5">
+        welcome <span className="text-fuchsia-500 ">{session?.user?.email}</span>
       </h1>
       {session && (
         <Link href="#" onClick={() => signOut()} className="btn-signin">
@@ -58,6 +61,7 @@ export default function Home() {
           </Button>
         </Link>
       )}
+     </div>
     </div>
   );
 }
